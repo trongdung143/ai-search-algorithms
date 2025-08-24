@@ -37,5 +37,9 @@ The graphical interface is built using **Pygame**, enabling users to create maps
 1. Install Python 3.9+  
 2. Install required libraries:
    ```bash
-   pip install pygame numpy
+   pip install -r requirements
+   ```
+3. Run
+   ```bash
+   python main.py
    ```
