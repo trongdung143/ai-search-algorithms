@@ -914,7 +914,7 @@ class GameAI:
 
                 pygame.draw.rect(self.win, (0, 0, 0), self.rectMap[i][j], 1, 2)
 
-    def DrawMap(self):
+    def DrawMap(self, wall=True):
         pygame.draw.rect(
             self.win,
             (0, 0, 0),
@@ -938,7 +938,7 @@ class GameAI:
         )
         for i in range(0, self.sizeMap[0]):
             for j in range(0, self.sizeMap[1]):
-                if self.map[i][j] == 1:
+                if self.map[i][j] == 1 and wall:
                     self.win.blit(
                         self.images[4],
                         (
@@ -1132,12 +1132,30 @@ class GameAI:
                                             x[0][0] * self.sizeImage[1] + self.dy,
                                         ),
                                     )
-                                    self.DrawMap()
+                                    self.DrawMap(False)
                                     pygame.display.update()
                                     if temp[i][1] in ["aStar", "ucs", "greedy"]:
                                         pygame.time.delay(20)
                                         continue
                                     pygame.time.delay(5)
+
+                                for x in self.info[temp[i][1]][0]:
+                                    pygame.draw.rect(
+                                        self.win,
+                                        (255, 0, 0),
+                                        pygame.rect.Rect(
+                                            x[1] * self.sizeImage[0] + self.dx,
+                                            x[0] * self.sizeImage[1] + self.dy,
+                                            self.sizeImage[0],
+                                            self.sizeImage[1],
+                                        ),
+                                        0,
+                                        2,
+                                    )
+
+                                    self.DrawMap(False)
+                                    pygame.display.update()
+
                                 for x in self.allPath[temp[i][1]][0]:
                                     font = pygame.font.Font(None, 20)
                                     textRender = font.render(str(x[1]), True, (0, 0, 0))
@@ -1161,21 +1179,7 @@ class GameAI:
                                         ),
                                     )
                                     pygame.display.update()
-                                for x in self.info[temp[i][1]][0]:
-                                    pygame.draw.rect(
-                                        self.win,
-                                        (255, 0, 0),
-                                        pygame.rect.Rect(
-                                            x[1] * self.sizeImage[0] + self.dx,
-                                            x[0] * self.sizeImage[1] + self.dy,
-                                            self.sizeImage[0],
-                                            self.sizeImage[1],
-                                        ),
-                                        0,
-                                        2,
-                                    )
-                                    self.DrawMap()
-                                    pygame.display.update()
+
             pygame.display.update()
 
     ##
