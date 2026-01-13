@@ -231,44 +231,6 @@ Navigate your player from the start position to the goal position while observin
 3. Answer: Which was most efficient? Most optimal? Fastest to complete?
 4. Draw conclusions about the maze difficulty and algorithm characteristics
 
-### Interactive Learning Exercises
-
-**Exercise 1: Shortest Path Comparison**
-- Objective: See which algorithm finds the true shortest path
-- Steps:
-  1. Create a simple maze with at least 2 different paths to the goal
-  2. Run BFS and A* side by side
-  3. Both should find equally short paths
-  4. Now run Greedy - it might take a longer route
-- Result: Understand optimality vs heuristics
-
-**Exercise 2: Exploration Pattern**
-- Objective: Visualize different search patterns
-- Steps:
-  1. Use default maze
-  2. Set speed to slow (leftmost slider position)
-  3. Enable only DFS, watch the deep exploration pattern
-  4. Reset and enable only BFS, watch the wave-like pattern
-  5. Enable A* and notice it aims toward the goal
-- Result: Understand search strategy differences
-
-**Exercise 3: Algorithm Limitations**
-- Objective: See when algorithms fail
-- Steps:
-  1. Create a maze where Hill Climbing gets stuck
-  2. Watch Hill Climbing fail at certain configurations
-  3. See how other algorithms handle the same maze
-- Result: Understand why different algorithms exist
-
-**Exercise 4: Performance Metrics**
-- Objective: Compare efficiency metrics
-- Steps:
-  1. Create the same maze for all tests
-  2. Run each algorithm individually
-  3. Note the "steps explored" count shown on right panel
-  4. Create a comparison table of explored nodes vs path length
-- Result: Understand time and space complexity trade-offs
-
 ---
 
 ## 📊 Algorithm Comparison
@@ -311,30 +273,6 @@ Navigate your player from the start position to the goal position while observin
    - Good heuristic = fewer nodes explored = faster
    - Manhattan distance is good for grid-based mazes
    - Watch how A* exploits the heuristic vs greedy
-
----
-
-## 📊 Expected Results by Algorithm
-
-### In a Simple Rectangular Maze
-- **DFS**: Variable performance, depends on wall placement
-- **BFS**: Optimal, systematic exploration
-- **A***: Very efficient, similar steps to BFS
-- **Greedy**: Fast, may take longer path
-- **Hill Climbing**: Often fails or gets stuck
-- **UCS**: Similar to BFS in unweighted maze
-- **Beam Search**: Decent, faster than BFS with beam width limit
-
-### In a Complex Multi-Path Maze
-- Differences become more obvious
-- Heuristic-based algorithms (A*, Greedy) stand out
-- BFS still optimal but explores more
-- DFS performance becomes very variable
-
-### In Open Spaces with Few Walls
-- All algorithms become more similar
-- Pathfinding becomes trivial
-- Best for testing very different algorithms only
 
 ---
 
